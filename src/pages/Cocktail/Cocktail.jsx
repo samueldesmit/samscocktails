@@ -81,8 +81,6 @@ function Cocktail() {
             <div className="text-holder__title-holder">
               <h2 className="title"> {soloCocktailData.strDrink}</h2>
               <span className="favorite-heart">
-
-               
                 <span type="button" value={id} onClick={handleFavorite}> {makeArray.includes(id) ? <IconHeartFilled value={id} onClick={handleFavorite}/> : <IconHeartOutline value={id} onClick={handleFavorite}/>}</span>
               </span>
               <p className="instructions">{soloCocktailData.strInstructions}</p>

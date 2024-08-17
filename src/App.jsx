@@ -10,6 +10,7 @@ import Favorites from "./pages/Favorites/Favorites"
 import { Navigate, Routes, Route } from 'react-router-dom'
 import {AuthContext} from "./context/AuthContext";
 import {useContext} from "react";
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
       <Nav />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -27,7 +29,6 @@ function App() {
         <Route path="/cocktail/:id" element={<Cocktail />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<NotFoundPage />} />
-
       </Routes>
     </>
   )

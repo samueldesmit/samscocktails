@@ -46,16 +46,15 @@ function Register() {
     <>
       <main className='register-page'>
         <Hero heroTitle='Register' heroImageLink={bannerImage} />
-
         <div className='register-page__inner'>
           <form className='register-form' action="submit"
             onSubmit={handleSubmit}>
             <label htmlFor=""> Username </label><input type="text"
-              onChange={e => setUsername(e.target.value)}
+              onChange={e => setUsername(e.target.value)} required
             />
-            <label htmlFor=""> Email </label><input type="email" onChange={e => setEmail(e.target.value)} />
+            <label htmlFor=""> Email </label><input type="email" onChange={e => setEmail(e.target.value)} required/>
             <label htmlFor=""> Password </label><input type="password"
-              onChange={e => setPassword(e.target.value)} />
+              onChange={e => setPassword(e.target.value)} required/>
             <button
               type="submit"
             > Register

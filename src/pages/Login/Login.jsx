@@ -39,14 +39,13 @@ function Login() {
     <>
       <div className='login-page'>
       <Hero heroTitle='Login' heroImageLink={bannerImage}/>
-
         <div className='login-page__inner'>
         <form className='login-form'
           onSubmit={handleSubmit}>
-          <label htmlFor="username">Username </label> <input type="text" onChange={e => setUsername(e.target.value)}
+          <label htmlFor="username">Username </label> <input type="text" onChange={e => setUsername(e.target.value)} required
           />
           <label htmlFor="password">Password </label> <input type="password"
-            onChange={e => setPassword(e.target.value)} />
+            onChange={e => setPassword(e.target.value)} required/>
           <button type="submit"> login</button>
           {Object.keys(error).length > 0 && <p>username and or password incorrect</p>}
           <Link className='to-register' to='/register'>no account yet? click here to register! </Link>

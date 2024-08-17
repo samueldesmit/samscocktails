@@ -1,0 +1,62 @@
+@import '../../settings/include-media.scss';
+
+.hero-outer-container {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__inner {
+    width: 100%;
+    height: 40vh;
+    padding: 0;
+    position: relative;
+    margin-bottom: 16px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 0 0 8px 8px;
+
+    @include media('>=md') {
+      height: 40vh;
+      margin-bottom: 24px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .text-holder {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      transform: translateY(0);
+      transition: opacity 0.1s, transform 0.5s;
+
+      &__text {
+        font-size: 3rem;
+        color: white;
+        position: absolute;
+        opacity: 1;
+        width: 100%;
+        text-align: center;
+
+        @include media('>=md') {
+          font-size: 8rem;
+        }
+      }
+    }
+
+    .scrolled {
+      opacity: 0;
+      transform: translateY(100px);
+      transition: opacity 0.3s, transform 0.5s;
+    }
+  }
+}

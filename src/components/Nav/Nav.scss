@@ -1,0 +1,135 @@
+@import '../../settings/include-media.scss';
+
+.outer-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 9999999;
+  background-color: white;
+
+  .navigation {
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    overflow: hidden;
+    z-index: 100;
+
+    @include media('<=md') {
+      padding: 16px;
+    }
+
+    &__home-logo a {
+      text-decoration: none;
+      color: #33302D;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    &__dekstop-menu {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      gap: 20px;
+
+      li a {
+        text-decoration: none;
+        color: #33302D;
+      }
+
+      .active {
+        text-decoration: underline;
+      }
+
+      @include media('<=md') {
+        display: none;
+      }
+    }
+
+    &__mobile-menu {
+      display: flex;
+      right: 0;
+      top: 64px;
+      position: fixed;
+      list-style: none;
+      height: 100vh;
+      background-color: white;
+      width: 100vw;
+      justify-content: center;
+      transform: translateX(100%);
+      transition: all 0.3s ease-in-out;
+      opacity: 0;
+
+      @include media('>=md') {
+        display: none;
+      }
+
+      .mobile-navigation-list {
+        list-style: none;
+        padding-top: 24px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        li a {
+          text-decoration: none;
+          color: #33302D;
+        }
+
+        .active {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__mobile-menu-open {
+      transform: translateX(0);
+      transition: all 0.3s ease-in-out;
+      opacity: 1;
+      z-index: 1000;
+
+      @include media('>=md') {
+        display: none;
+      }
+    }
+
+    .harburgermenu {
+      display: block;
+      cursor: pointer;
+
+      @include media('>=md') {
+        display: none;
+      }
+
+      &__burger {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background-color: #33302D;
+        margin: 6px 0;
+        transition: 0.4s;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    .harburgermenu-open {
+      .burger {
+        transform: rotate(-45deg) translate(-7px, 6px);
+      }
+
+      .burger:nth-child(2) {
+        opacity: 0;
+      }
+
+      .burger:nth-child(3) {
+        transform: rotate(45deg) translate(-7px, -6px);
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import '../../settings/include-media.scss';
+
+.register-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+
+  &__inner {
+    width: 100%;
+    max-width: 1440px;
+    font-size: 40px;
+    padding: 0 16px;
+
+    @include media('>=md') {
+      padding: 0 24px;
+    }
+  }
+}

@@ -10,6 +10,7 @@ import bannerImage from '../../assets/cocktail-home-image.webp';
 
 
 function Home() {
+  const { isAuthenticated } = useContext(AuthContext);
   const [inputValueDish, setInputValueDish] = useState('');
   const [cocktailData, setCocktailData] = useState({});
   const [activeCocktailId, setActiveCocktailId] = useState(null);
@@ -65,8 +66,8 @@ function Home() {
               placeholder="search with main ingredients"
               onChange={e => {
                 setInputValueDish(e.target.value);
-                setShowErrorPopup(false); 
-              }}/>
+                setShowErrorPopup(false);
+              }} />
             <button className='mainsearchform__button' type="submit">
               Fetch cocktail!
             </button>
@@ -89,6 +90,8 @@ function Home() {
                       key={cocktail.idDrink}
                       onMouseLeave={disableItemClick}
                     >
+                      {isAuthenticated ? 
+                      // when user is logged in, the following will be displayed
                       <div className='text-holder'>
                         <p className='text-holder__title'>{cocktail.strDrink}</p>
                         {cocktail.strInstructions &&
@@ -108,7 +111,13 @@ function Home() {
                         <Link className='text-holder__button' to={`/cocktail/${cocktail.idDrink}`}>View cocktail
                         </Link>
                         {cocktail.strGlass && <p className='text-holder__glass'>Serve in a {cocktail.strGlass}</p>}
-                      </div>
+                      </div> : 
+                      // when user is not logged in, the following will be displayed
+                      <div className='text-holder'>
+                        <p className='text-holder__text-login'>Login to view more</p>
+                        <Link className='text-holder__button text-holder__button-login' to='/login'>Login</Link>
+                      </div> 
+                      }
                     </div>
                     {cocktail.strTags && <span className='item-tags'>{cocktail.strTags.replace(",", ' - ')}</span>}
                   </div>

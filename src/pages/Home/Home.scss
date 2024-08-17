@@ -31,7 +31,8 @@
         @include media('>=md') {
           margin-bottom: 24px;
         }
-        span{
+
+        span {
           font-weight: bold;
         }
       }
@@ -186,6 +187,10 @@
             margin: 0 0 16px 0;
           }
 
+          &__button-login {
+            margin-top: 24px;
+          }
+
           &__instructions {
             font-size: 16px;
             margin-bottom: 16px;
@@ -299,7 +304,7 @@
         &__text {
           font-size: 16px;
           line-height: 1.5rem;
-    
+
           @include media('>=md') {
             font-size: 18px;
           }

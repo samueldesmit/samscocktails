@@ -15,15 +15,27 @@ function Home() {
   const [cocktailData, setCocktailData] = useState({});
   const [activeCocktailId, setActiveCocktailId] = useState(null);
   const [showErrorPopup, setShowErrorPopup] = useState(false); // State for managing the error popup visibility
+  const [searchType, setSearchType] = useState('name'); // New state for search type
 
   function handleSubmit(e) {
     e.preventDefault();
     fetchCocktail();
   }
-
   async function fetchCocktail() {
     try {
-      const result = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${inputValueDish}`);
+      let result;
+
+      // Determine the API endpoint based on the search type
+      if (searchType === 'name') {
+        // Search by cocktail name
+        result = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${inputValueDish}`);
+      } else {
+        // Search by ingredient
+        result = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${inputValueDish}`);
+      }
+      console.log(result.data);
+
+      // Check if the result contains drinks
       if (result.data.drinks) {
         setCocktailData(result);
         setShowErrorPopup(false); // Hide the error popup if cocktails are found
@@ -63,11 +75,36 @@ function Home() {
             <input
               className='mainsearchform__input'
               type="text"
-              placeholder="search with main ingredients"
+              placeholder="Search with ingredients or name"
               onChange={e => {
                 setInputValueDish(e.target.value);
                 setShowErrorPopup(false);
               }} />
+            <div className="search-type-selector">
+            <label htmlFor="name">
+                <input
+                  id="name"
+                  type="radio"
+                  name="searchType"
+                  value="name"
+                  checked={searchType === 'name'}
+                  onChange={() => setSearchType('name')}
+                />
+                <span>Name</span>
+              </label>
+              <label htmlFor="ingredient">
+                <input
+                  id="ingredient"
+                  type="radio"
+                  name="searchType"
+                  value="ingredient"
+                  checked={searchType === 'ingredient'}
+                  onChange={() => setSearchType('ingredient')}
+                />
+                <span>Ingredients</span>
+              </label>
+              
+            </div>
             <button className='mainsearchform__button' type="submit">
               Fetch cocktail!
             </button>
@@ -90,33 +127,33 @@ function Home() {
                       key={cocktail.idDrink}
                       onMouseLeave={disableItemClick}
                     >
-                      {isAuthenticated ? 
-                      // when user is logged in, the following will be displayed
-                      <div className='text-holder'>
-                        <p className='text-holder__title'>{cocktail.strDrink}</p>
-                        {cocktail.strInstructions &&
-                          <p className='text-holder__instructions'>{cocktail.strInstructions}</p>}
-                        {cocktail.strIngredient1 && (
-                          <ul className='ingredients'>
-                            {Array.from({ length: 20 }, (_, i) => i + 1).map(num => (
-                              cocktail[`strIngredient${num}`] && (
-                                <li className='item-ingredient' key={num}>
-                                  <span>{cocktail[`strIngredient${num}`]}</span>
-                                  <span>{cocktail[`strMeasure${num}`]}</span>
-                                </li>
-                              )
-                            ))}
-                          </ul>
-                        )}
-                        <Link className='text-holder__button' to={`/cocktail/${cocktail.idDrink}`}>View cocktail
-                        </Link>
-                        {cocktail.strGlass && <p className='text-holder__glass'>Serve in a {cocktail.strGlass}</p>}
-                      </div> : 
-                      // when user is not logged in, the following will be displayed
-                      <div className='text-holder'>
-                        <p className='text-holder__text-login'>Login to view more</p>
-                        <Link className='text-holder__button text-holder__button-login' to='/login'>Login</Link>
-                      </div> 
+                      {isAuthenticated ?
+                        // when user is logged in, the following will be displayed
+                        <div className='text-holder'>
+                          <p className='text-holder__title'>{cocktail.strDrink}</p>
+                          {cocktail.strInstructions &&
+                            <p className='text-holder__instructions'>{cocktail.strInstructions}</p>}
+                          {cocktail.strIngredient1 && (
+                            <ul className='ingredients'>
+                              {Array.from({ length: 20 }, (_, i) => i + 1).map(num => (
+                                cocktail[`strIngredient${num}`] && (
+                                  <li className='item-ingredient' key={num}>
+                                    <span>{cocktail[`strIngredient${num}`]}</span>
+                                    <span>{cocktail[`strMeasure${num}`]}</span>
+                                  </li>
+                                )
+                              ))}
+                            </ul>
+                          )}
+                          <Link className='text-holder__button' to={`/cocktail/${cocktail.idDrink}`}>View cocktail
+                          </Link>
+                          {cocktail.strGlass && <p className='text-holder__glass'>Serve in a {cocktail.strGlass}</p>}
+                        </div> :
+                        // when user is not logged in, the following will be displayed
+                        <div className='text-holder'>
+                          <p className='text-holder__text-login'>Login to view more</p>
+                          <Link className='text-holder__button text-holder__button-login' to='/login'>Login</Link>
+                        </div>
                       }
                     </div>
                     {cocktail.strTags && <span className='item-tags'>{cocktail.strTags.replace(",", ' - ')}</span>}

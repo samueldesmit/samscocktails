@@ -3,7 +3,9 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from 'react-router-dom';
 import axios from "axios";
-
+import inlogImage from '../../assets/cocktail-home-image.webp';
+import Hero from '../../components/Hero/Hero';
+import bannerImage from '../../assets/cocktail-home-image.webp';
 function Login() {
 
   const { toggleInlog } = useContext(AuthContext);
@@ -35,17 +37,24 @@ function Login() {
 
   return (
     <>
-      <div className='login-page '>
-        <form
+      <div className='login-page'>
+      <Hero heroTitle='Login' heroImageLink={bannerImage}/>
+
+        <div className='login-page__inner'>
+        <form className='login-form'
           onSubmit={handleSubmit}>
-          <label htmlFor=""> username <input type="text" onChange={e => setUsername(e.target.value)}
-          /></label>
-          <label htmlFor=""> password <input type="password"
-            onChange={e => setPassword(e.target.value)} /></label>
+          <label htmlFor="username">Username </label> <input type="text" onChange={e => setUsername(e.target.value)}
+          />
+          <label htmlFor="password">Password </label> <input type="password"
+            onChange={e => setPassword(e.target.value)} />
           <button type="submit"> login</button>
+          {Object.keys(error).length > 0 && <p>username and or password incorrect</p>}
+          <Link className='to-register' to='/register'>no account yet? click here to register! </Link>
         </form>
-        {Object.keys(error).length > 0 && <p>username and or password incorrect</p>}
-        <Link to='/register'>no account yet? click here to register! </Link>
+        <div className='image-holder'> 
+        <img className='hero-image' src={inlogImage} alt="Hero" />
+        </div>
+        </div>
       </div>
     </>
   );

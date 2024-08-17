@@ -2,7 +2,8 @@ import './Register.scss'
 import axios from "axios";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-
+import Hero from '../../components/Hero/Hero';
+import bannerImage from '../../assets/cocktail-home-image.webp';
 function Register() {
 
   function handleSubmit(e) {
@@ -44,24 +45,26 @@ function Register() {
   return (
     <>
       <main className='register-page'>
-        <div>
-          <h1>Welkom on the register page</h1>
-          <form action="submit"
+        <Hero heroTitle='Register' heroImageLink={bannerImage} />
+
+        <div className='register-page__inner'>
+          <form className='register-form' action="submit"
             onSubmit={handleSubmit}>
-            <label htmlFor=""> username </label><input type="text"
+            <label htmlFor=""> Username </label><input type="text"
               onChange={e => setUsername(e.target.value)}
             />
-            <label htmlFor=""> email </label><input type="email" onChange={e => setEmail(e.target.value)} />
-            <label htmlFor=""> password </label><input type="password"
+            <label htmlFor=""> Email </label><input type="email" onChange={e => setEmail(e.target.value)} />
+            <label htmlFor=""> Password </label><input type="password"
               onChange={e => setPassword(e.target.value)} />
             <button
               type="submit"
             > Register
             </button>
+            {triggerError && <p>{error}</p>}
           </form>
-          {triggerError && <p>{error}</p>}
-          <p>Email must contain an @ and password needs to be at
-            least six characters long </p>
+          <div className='image-holder'>
+            <img className='hero-image' src={bannerImage} alt="Hero" />
+          </div>
         </div>
       </main>
       {registerSucces && <Navigate to="/login" />}

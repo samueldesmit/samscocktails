@@ -2,7 +2,8 @@ import './Profile.scss';
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import NoInspiration from '../../components/No Inspiration/No-inspiration';
-
+import Hero from '../../components/Hero/Hero';
+import bannerImage from '../../assets/cocktail-home-image.webp';
 
 function Profile() {
   const { user, toggleLogout } = useContext(AuthContext);
@@ -10,9 +11,10 @@ function Profile() {
   return (
     <>
       <div className='profile-page'>
+      <Hero heroTitle='Welcome' heroImageLink={bannerImage} />
         <div className='profile-page__inner'>
           <div className='text-holder'>
-            <h2 className='text-holder__welcome-user'>Welkom {user.username}</h2>
+            <h3 className='text-holder__welcome-user'>Hej {user.username}!</h3>
             <p className='text-holder__introduction'>Welcome to Sams Cocktails!
               We're thrilled to have you here, where every sip is an adventure waiting to happen. Now that you're part of our fabulous community, you’ve unlocked the secret superpower: the Favorite button! 🌟🍹
               Think of it as your personal vault for all the cocktails that make you say, "I need another one of those!" Found a mojito that makes your heart sing? A margarita that dances on your taste buds? Just hit that Favorite button and voilà, it’s saved for your next happy hour.

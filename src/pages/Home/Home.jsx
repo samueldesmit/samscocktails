@@ -119,7 +119,7 @@ function Home() {
           {(!cocktailData.data || !cocktailData.data.drinks) && (
             <div className='nosearchgrid'>
               <div className='text-holder'>
-                <h2 className='text-holder__title'>Search for the perfect cocktail!</h2>
+                <h2 className='text-holder__title'>Search for a cocktail!</h2>
                 <p className='text-holder__text'>Discover your favorite cocktails by simply typing in the name or ingredients. Hover over the search results to reveal the recipe and ingredients list, so you can impress your friends with your mixology skills. Cheers to finding your perfect drink with just a few clicks!</p>
               </div>
               <div className='image-holder'>

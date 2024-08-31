@@ -374,6 +374,7 @@
         overflow: hidden;
         max-height: unset;
         display: none;
+        max-height: 330px;
 
         @include media('>=md') {
           display: block;

@@ -6,6 +6,7 @@ import axios from "axios";
 import inlogImage from '../../assets/cocktail-home-image.webp';
 import Hero from '../../components/Hero/Hero';
 import bannerImage from '../../assets/cocktail-home-image.webp';
+
 function Login() {
 
   const { toggleInlog } = useContext(AuthContext);

@@ -11,7 +11,7 @@ import { Navigate, Routes, Route } from 'react-router-dom'
 import {AuthContext} from "./context/AuthContext";
 import {useContext} from "react";
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-
+import Footer from "./components/Footer/Footer"
 function App() {
 
   const { isAuthenticated } = useContext(AuthContext);
@@ -30,6 +30,7 @@ function App() {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <Footer />
     </>
   )
 }

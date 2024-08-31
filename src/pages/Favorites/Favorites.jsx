@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import NoInspiration from '../../components/No Inspiration/No-inspiration';
 import Hero from '../../components/Hero/Hero';
 import bannerImage from '../../assets/cocktail-home-image.webp';
+
 function Favorites() {
   const { user } = useContext(AuthContext);
   const [favorites, setFavorites] = useState([]);

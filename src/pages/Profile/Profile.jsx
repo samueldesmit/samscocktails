@@ -27,7 +27,7 @@ function Profile() {
               className='logout-button'
               type="button"
               onClick={toggleLogout}>
-              log uit
+              log out
             </a>
           </div>
           <NoInspiration />

@@ -75,17 +75,24 @@
     }
 
     .logout-button {
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
-      width: 100%;
+      width: fit-content;
       background-color: #33302D;
-      padding: 10px 20px;
-      font-size: 20px;
+      font-size: 16px;
       text-transform: uppercase;
       outline: none;
-      border: 2px solid #33302D;
+      border: 1px solid #33302D;
       transition: all 0.3s ease-in-out;
-      width: fit-content;
-      border-radius: 8px;
+      min-height: 50px;
+      padding: 0 20px;
+
+      @include media('>=md') {
+        font-size: 20px;
+      }
 
       &:hover {
         color: #33302D;

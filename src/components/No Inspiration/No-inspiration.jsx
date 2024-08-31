@@ -1,5 +1,5 @@
 import './No-inspiration.scss';
-import cocktailStockPhoto from '../../assets/cocktails-with-friends.jpg';
+import sexOntheBeach from '../../assets/sex-on-the-beach-cocktail.jpg';
 import { Link } from 'react-router-dom';
 
 function NoInspiration() {
@@ -9,7 +9,7 @@ function NoInspiration() {
 
       <div className='noinpirationgrid'>
         <div className='image-holder'>
-          <img className='image-holder__image' src={cocktailStockPhoto} alt="Two blue cocktails" />
+          <img className='image-holder__image' src={sexOntheBeach} alt="Two blue cocktails" />
         </div>
         <div className='text-holder'>
           <h2 className='text-holder__title'>Shake Up Your Party with the Random Cocktail Finder!</h2>

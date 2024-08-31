@@ -39,7 +39,6 @@
 
     .mainsearchform {
       padding: 16px;
-      // background-color: lightgray;
       border-radius: 8px;
       width: 100%;
       display: flex;
@@ -92,13 +91,11 @@
             width: 0;
           }
 
-          /* Apply style when the radio button is checked */
           input[type="radio"]:checked+span {
             background-color: #33302D;
             color: white;
           }
 
-          /* Span styling to ensure proper appearance */
           span {
             display: inline-block;
             padding: 10px 20px;
@@ -377,6 +374,7 @@
         overflow: hidden;
         max-height: unset;
         display: none;
+        max-height: 330px;
 
         @include media('>=md') {
           display: block;

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Hero from '../../components/Hero/Hero';
 import bannerImage from '../../assets/cocktail-home-image.webp';
+
 function Register() {
 
   function handleSubmit(e) {

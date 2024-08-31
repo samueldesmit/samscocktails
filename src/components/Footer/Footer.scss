@@ -1,0 +1,66 @@
+@import '../../settings/include-media.scss';
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #33302D;
+  margin-top: 32px;
+
+  @include media('>=md') {
+    margin-top: 48px;
+  }
+
+  &__inner {
+    width: 100%;
+    max-width: 1440px;
+    padding: 16px;
+    background-color: #33302D;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 40px;
+
+    @include media('>=md') {
+      flex-direction: row;
+      padding: 24px;
+    }
+
+    .footer-information-column {
+      font-family: "Roboto", sans-serif;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      p {
+        color: white;
+      }
+
+      ul {
+        color: white;
+        font-family: "Roboto", sans-serif;
+
+        li {
+          list-style-type: none;
+          padding-bottom: 8px;
+          font-style: italic;
+        }
+      }
+
+      a {
+        color: white;
+        text-decoration: underline;
+
+        @include media('>=md') {
+          text-decoration: none;
+        }
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+
+    }
+  }
+}

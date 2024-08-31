@@ -25,16 +25,23 @@
       display: flex;
 
       &__button {
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
         width: 100%;
         background-color: #33302D;
-        padding: 20px;
-        font-size: 20px;
+        font-size: 16px;
         text-transform: uppercase;
         outline: none;
-        border: 2px solid #33302D;
+        border: 1px solid #33302D;
         transition: all 0.3s ease-in-out;
-        border-radius: 8px;
+        min-height: 50px;
+
+        @include media('>=md') {
+          font-size: 20px;
+        }
 
         &:hover {
           color: #33302D;
@@ -135,26 +142,25 @@
           }
 
           &__button {
-            margin-top: 16px;
+            margin-top: 24px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             width: 100%;
             background-color: #33302D;
-            font-size: 14px;
+            font-size: 16px;
             text-transform: uppercase;
             outline: none;
             border: 1px solid #33302D;
             transition: all 0.3s ease-in-out;
-            padding: 5px;
-            border-radius: 8px;
-            margin-bottom: 8px;
+            min-height: 50px;
             text-decoration: none;
-
+    
             @include media('>=md') {
-              width: fit-content;
-              padding: 16px;
+              font-size: 20px;
+              width: 50%;
             }
 
             &:visited {

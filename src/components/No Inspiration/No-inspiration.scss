@@ -44,39 +44,31 @@
     }
 
     &__link {
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
-      width: 50%;
+      width: 100%;
       background-color: #33302D;
-      padding: 20px;
-      font-size: 14px;
+      font-size: 16px;
       text-transform: uppercase;
       outline: none;
-      border: 2px solid #33302D;
+      border: 1px solid #33302D;
       transition: all 0.3s ease-in-out;
-      text-align: center;
-      width: 100%;
-      margin-top: 16px;
+      min-height: 54px;
       text-decoration: none;
-      border-radius: 8px;
+      margin-top: 24px;
 
       @include media('>=md') {
         font-size: 20px;
-        margin-top: 24px;
+        width: 50%;
       }
 
       &:hover {
         color: #33302D;
         background-color: white;
         cursor: pointer;
-      }
-
-      &:visited {
-        color: white;
-      }
-
-      &:hover {
-        color: #33302D;
-        background-color: white;
       }
     }
   }

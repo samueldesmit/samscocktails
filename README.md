@@ -67,3 +67,6 @@ Meer informatie over de API en de beschikbare eindpunten vind je op de [officië
 ---
 
 Veel plezier met het gebruik van Sams Cocktails! Proost! 🍻
+
+![readmeimage](https://github.com/user-attachments/assets/d66237af-dfdb-42fd-8c35-6364fdbc67e6)
+

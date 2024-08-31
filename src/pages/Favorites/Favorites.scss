@@ -1,7 +1,6 @@
 @import '../../settings/include-media.scss';
 
 .favorites-page {
-  // margin-top: 80px;
   font-family: "Roboto", sans-serif;
   background-color: white;
   width: 100%;
@@ -10,7 +9,6 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
-  // margin-bottom: 100px;
 
   &__inner {
     width: 100%;
@@ -32,7 +30,6 @@
       }
 
       .favorites {
-
         .favorite {
           position: relative;
           width: 100%;
@@ -58,7 +55,6 @@
                 border-radius: 8px;
                 overflow: hidden;
                 height: 100%;
-
               }
 
               .title {
@@ -76,11 +72,9 @@
               object-fit: cover;
             }
           }
-
         }
       }
     }
-
   }
 
   &__inner-other {

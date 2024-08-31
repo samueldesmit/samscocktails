@@ -6,7 +6,6 @@ function NoInspiration() {
 
   return (
     <>
-
       <div className='noinpirationgrid'>
         <div className='image-holder'>
           <img className='image-holder__image' src={sexOntheBeach} alt="Two blue cocktails" />
@@ -20,8 +19,6 @@ function NoInspiration() {
           <Link className="text-holder__link" to='/random'>Find a random cocktail</Link>
         </div>
       </div>
-
-
     </>
   )
 }

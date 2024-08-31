@@ -9,7 +9,6 @@ function Footer() {
           <p>Sam's Cocktails  ©</p>
           <p>2024</p>
         </div>
-
         <div className='footer-information-column'>
           <p>Powered by</p>
           <a href='https://www.thecocktaildb.com/' target='_blank'>TheCocktailDB</a>

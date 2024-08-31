@@ -12,8 +12,8 @@ import {AuthContext} from "./context/AuthContext";
 import {useContext} from "react";
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Footer from "./components/Footer/Footer"
-function App() {
 
+function App() {
   const { isAuthenticated } = useContext(AuthContext);
 
   return (

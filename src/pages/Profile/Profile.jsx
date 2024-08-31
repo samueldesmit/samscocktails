@@ -33,7 +33,6 @@ function Profile() {
           <NoInspiration />
         </div>
       </div>
-
     </>
   );
 }

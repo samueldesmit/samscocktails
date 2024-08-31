@@ -8,7 +8,6 @@ import Hero from '../../components/Hero/Hero';
 import bannerImage from '../../assets/cocktail-home-image.webp';
 
 function Login() {
-
   const { toggleInlog } = useContext(AuthContext);
   const [username, setUsername] = useState({});
   const [password, setPassword] = useState({});
@@ -34,7 +33,6 @@ function Login() {
       setError(e.response)
     }
   }
-
 
   return (
     <>

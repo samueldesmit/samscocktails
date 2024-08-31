@@ -3,10 +3,8 @@ import { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import {AuthContext} from "../../context/AuthContext";
 
-
 function Nav() {
   const {isAuthenticated} = useContext(AuthContext);
-
   const [menu, setMenu] = useState(false);
   function handleMenu() {
     setMenu(!menu);

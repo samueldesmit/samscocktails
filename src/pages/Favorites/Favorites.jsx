@@ -14,7 +14,6 @@ function Favorites() {
   const token = localStorage.getItem('token');
   const bearerToken = `Bearer ${token}`; <NoInspiration />
 
-
   useEffect(() => {
     async function fetchUserData() {
       try {
@@ -53,8 +52,7 @@ function Favorites() {
 
   return (
     <div className='favorites-page'>
-            <Hero heroTitle='Favorites' heroImageLink={bannerImage}/>
-
+      <Hero heroTitle='Favorites' heroImageLink={bannerImage}/>
       <div className='favorites-page__inner'>
         <div className='favorites-grid'>
           {favorites.map((drinkArray, index) => (
@@ -76,7 +74,6 @@ function Favorites() {
       <div className="cocktail__inner-other">
         <NoInspiration />
       </div>
-
     </div>
   );
 }

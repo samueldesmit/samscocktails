@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import "./NotFoundPage.scss";
 import bannerImage from '../../assets/cocktail-home-image.webp';
 import Hero from '../../components/Hero/Hero';
+
 function NotFoundPage() {
     return (
         <>
             <section className='notfound-page'>
                 <Hero heroTitle='404' heroImageLink={bannerImage} />
-
                 <div className='notfound-page__inner'>
                     <div className='text-holder'>
                         <h2 className='text-holder__title'>One does not simply find the Mithril Martini!</h2>
@@ -18,7 +18,6 @@ function NotFoundPage() {
                     <div className='image-holder'>
                         <img className='image-holder__image' src={bannerImage} alt="Two blue cocktails" />
                     </div>
-
                 </div>
             </section>
         </>

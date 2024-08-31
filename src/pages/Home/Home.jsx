@@ -8,14 +8,13 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from "../../context/AuthContext";
 import bannerImage from '../../assets/cocktail-home-image.webp';
 
-
 function Home() {
   const { isAuthenticated } = useContext(AuthContext);
   const [inputValueDish, setInputValueDish] = useState('');
   const [cocktailData, setCocktailData] = useState({});
   const [activeCocktailId, setActiveCocktailId] = useState(null);
-  const [showErrorPopup, setShowErrorPopup] = useState(false); // State for managing the error popup visibility
-  const [searchType, setSearchType] = useState('name'); // New state for search type
+  const [showErrorPopup, setShowErrorPopup] = useState(false); 
+  const [searchType, setSearchType] = useState('name'); 
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -25,7 +24,6 @@ function Home() {
     try {
       let result;
 
-      // Determine the API endpoint based on the search type
       if (searchType === 'name') {
         // Search by cocktail name
         result = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${inputValueDish}`);
@@ -35,7 +33,6 @@ function Home() {
       }
       console.log(result.data);
 
-      // Check if the result contains drinks
       if (result.data.drinks) {
         setCocktailData(result);
         setShowErrorPopup(false); // Hide the error popup if cocktails are found
@@ -60,8 +57,6 @@ function Home() {
   return (
     <main>
       <Hero heroTitle='C O C K T A I L S' heroImageLink={bannerImage} />
-
-
       <div className='mainsearch'>
         <div className='mainsearch__inner'>
           {showErrorPopup && <span className='nothing-found-message' onClick={() => setShowErrorPopup(false)}> <p>

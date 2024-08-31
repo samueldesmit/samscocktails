@@ -85,11 +85,9 @@ function Random() {
                     <Link className='text-holder__button text-holder__button-login' to='/login'>Login</Link>
                   </div>
                 }
-
               </div>
             </div>
           ))}
-
         </div>
       </div>
     </main>
